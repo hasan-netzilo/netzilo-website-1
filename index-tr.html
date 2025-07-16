@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netzilo - Dijital Kurumsal Çalışma Alanı</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/netzilo_logo_blue.svg">
+    <link rel="icon" type="image/png" href="assets/images/netzilo_logo_blue.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            950: '#020617',
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                            600: '#475569',
+                            500: '#64748b',
+                            400: '#94a3b8',
+                            300: '#cbd5e1',
+                            200: '#e2e8f0',
+                            100: '#f1f5f9',
+                            50: '#f8fafc'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in { animation: fadeIn 0.6s ease-in-out; }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #3b82f6, #06b6d4);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 3s ease infinite;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-white min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center">
+                        <img src="assets/images/netzilo_logo_blue.svg" alt="Netzilo" class="h-8 w-8">
+                        <span class="ml-2 text-xl font-bold text-white">Netzilo</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium hover:border-b-2 hover:border-blue-400 transition-colors cursor-pointer">Anasayfa</a>
+                    <a href="product/" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium hover:border-b-2 hover:border-blue-400 transition-colors cursor-pointer">Ürün</a>
+                    <a href="solutions/" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium hover:border-b-2 hover:border-blue-400 transition-colors cursor-pointer">Çözümler</a>
+                    <a href="pricing/" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium hover:border-b-2 hover:border-blue-400 transition-colors cursor-pointer">Fiyatlandırma</a>
+                    <a href="about/" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium hover:border-b-2 hover:border-blue-400 transition-colors cursor-pointer">Hakkında</a>
+                </div>
+
+                <!-- Language Toggle -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="index.html" class="text-gray-400 hover:text-white text-sm">EN</a>
+                    <span class="text-gray-600">|</span>
+                    <a href="index-tr.html" class="text-blue-400 text-sm font-medium">TR</a>
+                    <a href="contact/" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center justify-center">
+                        İletişim
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-400 hover:text-white focus:outline-none focus:text-white">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-slate-900 border-t border-slate-800">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="/" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-slate-800 transition-colors">Anasayfa</a>
+                <a href="product/" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-slate-800 transition-colors">Ürün</a>
+                <a href="solutions/" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-slate-800 transition-colors">Çözümler</a>
+                <a href="pricing/" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-slate-800 transition-colors">Fiyatlandırma</a>
+                <a href="about/" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-slate-800 transition-colors">Hakkında</a>
+                <a href="contact/" class="block px-3 py-2 text-base font-medium bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors">İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 fade-in">
+                    <span class="gradient-text">Dijital Kurumsal</span><br>
+                    <span class="text-white">Çalışma Alanı</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto fade-in">
+                    Sıfır güven güvenliği ile modern ve güvenli uzaktan çalışma çözümü. Eski VDI ve RBI çözümlerine modern bir alternatif.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
+                    <a href="contact/" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg text-lg font-medium transition-colors inline-flex items-center justify-center">
+                        Ücretsiz Deneme Başlat
+                    </a>
+                    <a href="product/" class="border border-slate-600 hover:border-slate-500 text-white px-8 py-3 rounded-lg text-lg font-medium transition-colors inline-flex items-center justify-center">
+                        Ürünü Keşfet
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Neden Netzilo?</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Kurumsal güvenlik ve kullanıcı deneyimini mükemmel şekilde birleştiren çözümümüz
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-slate-800 rounded-lg p-6 hover:bg-slate-700 transition-colors">
+                    <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.031 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Sıfır Güven Güvenliği</h3>
+                    <p class="text-gray-300">
+                        Gelişmiş şifreleme ve izolasyon teknolojileri ile kurumsal verilerinizi koruyun
+                    </p>
+                </div>
+                
+                <div class="bg-slate-800 rounded-lg p-6 hover:bg-slate-700 transition-colors">
+                    <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Yüksek Performans</h3>
+                    <p class="text-gray-300">
+                        Geleneksel VDI çözümlerinden daha hızlı ve verimli çalışma deneyimi
+                    </p>
+                </div>
+                
+                <div class="bg-slate-800 rounded-lg p-6 hover:bg-slate-700 transition-colors">
+                    <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Kolay Kullanım</h3>
+                    <p class="text-gray-300">
+                        Sezgisel arayüz ve basit kurulum ile hızlı adaptasyon
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Hazır mısınız?</h2>
+            <p class="text-xl text-gray-300 mb-8">
+                Netzilo ile güvenli ve modern çalışma deneyiminizi başlatın
+            </p>
+            <a href="contact/" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg text-lg font-medium transition-colors inline-flex items-center justify-center">
+                Hemen Başlayın
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="assets/images/netzilo_logo_blue.svg" alt="Netzilo" class="h-8 w-8">
+                        <span class="ml-2 text-xl font-bold text-white">Netzilo</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Sıfır güven güvenliği ile eksiksiz Dijital Kurumsal Çalışma Alanı çözümü.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Ürün</h3>
+                    <ul class="space-y-2">
+                        <li><a href="product/" class="text-gray-400 hover:text-white transition-colors">Ürün</a></li>
+                        <li><a href="solutions/" class="text-gray-400 hover:text-white transition-colors">Çözümler</a></li>
+                        <li><a href="pricing/" class="text-gray-400 hover:text-white transition-colors">Fiyatlandırma</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Şirket</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about/" class="text-gray-400 hover:text-white transition-colors">Hakkımızda</a></li>
+                        <li><a href="contact/" class="text-gray-400 hover:text-white transition-colors">İletişim</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Hukuki</h3>
+                    <ul class="space-y-2">
+                        <li><a href="privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Gizlilik Politikası</a></li>
+                        <li><a href="terms-of-service.html" class="text-gray-400 hover:text-white transition-colors">Hizmet Şartları</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Netzilo. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
