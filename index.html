@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="tr" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +32,7 @@
         }
     </script>
     <style>
-        /* Custom animations */
+        /* Özel animasyonlar */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -60,18 +60,18 @@
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
         }
         
-        /* Hide all sections except home by default */
+        /* Varsayılan olarak ana sayfa dışındaki tüm bölümleri gizle */
         .page-section { display: none; }
         .page-section.active { display: block; }
         
-        /* Smooth scrolling */
+        /* Yumuşak kaydırma */
         html { scroll-behavior: smooth; }
 
 
     </style>
 </head>
 <body class="bg-slate-950 text-white min-h-screen">
-    <!-- Navigation -->
+    <!-- Gezinme -->
     <nav class="bg-slate-950 border-b border-slate-800 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="hidden md:grid grid-cols-3 items-center h-16">
@@ -96,7 +96,7 @@
                 </div>
             </div>
 
-            <!-- Mobile layout -->
+            <!-- Mobil düzen -->
             <div class="md:hidden flex justify-between items-center h-16">
                 <div class="flex items-center">
                     <a href="/" class="flex items-center">
@@ -104,7 +104,7 @@
                     </a>
                 </div>
 
-                <!-- Mobile menu button -->
+                <!-- Mobil menü düğmesi -->
                 <div class="flex items-center">
                     <button onclick="toggleMobileMenu()" class="text-gray-300 hover:text-white">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -114,7 +114,7 @@
                 </div>
             </div>
 
-            <!-- Mobile Navigation -->
+            <!-- Mobil Gezinme -->
             <div id="mobile-menu" class="hidden md:hidden">
                 <div class="px-2 pt-2 pb-3 space-y-1 bg-slate-900 rounded-lg mt-2">
                     <a href="/" class="block px-3 py-2 text-base font-medium text-blue-400 bg-slate-800 transition-colors">Ana Sayfa</a>
@@ -132,11 +132,11 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
+    <!-- Ana İçerik -->
     <main>
-        <!-- Home Page -->
+        <!-- Ana Sayfa -->
         <div id="home" class="page-section active">
-            <!-- Hero Section -->
+            <!-- Ana Bölüm -->
             <section class="relative bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 py-20 lg:py-32 overflow-hidden">
                 <div class="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
                 <img src="assets/images/netzilo_hero_enhanced.png" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover opacity-70 blur-lg pointer-events-none select-none z-0" style="min-width:100vw;min-height:100%;"/>
@@ -167,7 +167,7 @@
                             </a>
                         </div>
 
-                        <!-- Stats -->
+                        <!-- İstatistikler -->
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
                             <div class="text-center">
                                 <div class="text-3xl md:text-4xl font-bold text-blue-400 mb-2">80%</div>
@@ -190,7 +190,7 @@
                 </div>
             </section>
 
-            <!-- Benefits Section -->
+            <!-- Faydalar Bölümü -->
             <section class="py-20 bg-slate-900">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-16">
@@ -291,7 +291,7 @@
                 </div>
             </section>
 
-            <!-- Call to Action Section -->
+            <!-- Eylem Çağrısı Bölümü -->
             <section class="py-20 bg-gradient-to-r from-blue-600 to-cyan-600">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                                             <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
@@ -315,13 +315,13 @@
                             <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
-                            <span>Hızlı onboarding</span>
+                            <span>Hızlı kullanıma alma</span>
                         </div>
                         <div class="flex items-center">
                             <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
-                            <span>Enterprise-seviyesi güvenlik</span>
+                            <span>Kurumsal seviye güvenlik</span>
                         </div>
                         <div class="flex items-center">
                             <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -341,11 +341,11 @@
 
     </main>
 
-    <!-- Footer -->
+    <!-- Alt Bilgi -->
     <footer class="bg-slate-900 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <!-- Company Info -->
+                <!-- Şirket Bilgisi -->
                 <div class="col-span-1 md:col-span-2">
                     <div class="flex items-center mb-4">
                         <img src="assets/images/netzilo_logo_full_white.svg" alt="Netzilo" class="h-8">
@@ -362,7 +362,7 @@
                     </div>
                 </div>
 
-                <!-- Quick Links -->
+                <!-- Hızlı Bağlantılar -->
                 <div>
                     <h3 class="text-white font-semibold mb-4">Hızlı Linkler</h3>
                     <ul class="space-y-2">
@@ -375,7 +375,7 @@
                     </ul>
                 </div>
 
-                <!-- Contact Info -->
+                <!-- İletişim Bilgisi -->
                 <div>
                     <h3 class="text-white font-semibold mb-4">İletişim</h3>
                     <ul class="space-y-2">
@@ -417,31 +417,31 @@
     </footer>
 
     <script>
-        // Navigation functionality
+        // Gezinme işlevselliği
         function showPage(pageId) {
-            // Hide all pages
+            // Tüm sayfaları gizle
             const pages = document.querySelectorAll('.page-section');
             pages.forEach(page => {
                 page.classList.remove('active');
             });
             
-            // Show selected page
+            // Seçili sayfayı göster
             const targetPage = document.getElementById(pageId);
             if (targetPage) {
                 targetPage.classList.add('active');
             }
             
-            // Update navigation active state
+            // Gezinme aktif durumunu güncelle
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => {
                 link.classList.remove('text-blue-400', 'border-b-2', 'border-blue-400');
                 link.classList.add('text-gray-300');
             });
             
-            // Scroll to top
+            // En üste kaydır
             window.scrollTo(0, 0);
             
-            // Close mobile menu if open
+            // Mobil menü açıksa kapat
             const mobileMenu = document.getElementById('mobile-menu');
             if (mobileMenu) {
                 mobileMenu.classList.add('hidden');
@@ -455,7 +455,7 @@
             }
         }
         
-        // Initialize page
+        // Sayfayı başlat
         document.addEventListener('DOMContentLoaded', function() {
             showPage('home');
         });
